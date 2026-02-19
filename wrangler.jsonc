@@ -1,0 +1,53 @@
+{
+  "name": "buckshot",
+  "main": "./worker.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "yt-shorts-db",
+      "database_id": "62285cc9-46a9-4fd8-b740-3255f1595f0b",
+      "migrations_dir": "src/lib/db/migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "bucket_name": "yt-shorts-videos",
+      "binding": "VIDEOS"
+    },
+    {
+      "bucket_name": "yt-shorts-logs",
+      "binding": "LOGS"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "CACHE",
+      "id": "49dcf5f9c7734353950cb9f37d7b49d8"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "UPLOAD_QUEUE",
+        "queue": "yt-upload-queue"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "yt-upload-queue",
+        "max_retries": 5,
+        "max_batch_size": 1,
+        "max_batch_timeout": 0
+      }
+    ]
+  },
+  "triggers": {
+    "crons": ["*/45 * * * *", "0 */2 * * *", "5 8 * * *", "0 */6 * * *", "30 4 * * *", "0 3 * * *"]
+  }
+}

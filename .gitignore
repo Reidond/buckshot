@@ -1,2 +1,35 @@
+# Dependencies
+node_modules/
+bun.lock
+
+# Next.js
+.next/
+out/
+
+# OpenNext / Cloudflare
+.open-next/
+dist/
+
+# Secrets
+.dev.vars
+*.env
+.env.*
+!.env.example
+
+# Build
+dist/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
+*.swo
+
+# OMC
 .omc/
+
+/worker.ts
+.wrangler/
