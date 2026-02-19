@@ -72,7 +72,7 @@ function getLocalDb(): Database {
   const files = [...new Bun.Glob("*.sqlite").scanSync(D1_DIR)];
   if (files.length === 0) {
     throw new Error(
-      `No local D1 database found. Run 'bun run dev' first to initialize wrangler state.`,
+      `No local D1 database found. Run 'bun run dev' first to initialize wrangler state.`
     );
   }
   return new Database(`${D1_DIR}/${files[0]}`);

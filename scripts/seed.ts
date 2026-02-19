@@ -14,9 +14,7 @@ const D1_DIR = `${import.meta.dir}/../.wrangler/state/v3/d1/miniflare-D1Database
 function getLocalDb(): Database {
   const files = [...new Bun.Glob("*.sqlite").scanSync(D1_DIR)];
   if (files.length === 0) {
-    throw new Error(
-      "No local D1 database found. Run 'bun run db:migrate:local' first.",
-    );
+    throw new Error("No local D1 database found. Run 'bun run db:migrate:local' first.");
   }
   return new Database(`${D1_DIR}/${files[0]}`);
 }
@@ -36,7 +34,7 @@ async function seed() {
   const inserted = db
     .query(
       `INSERT OR IGNORE INTO admin_users (id, email, password_hash, name, role, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?)`
     )
     .run(ADMIN_ID, "admin@buckshot.local", passwordHash, "Dev Admin", "super_admin", now, now);
 
