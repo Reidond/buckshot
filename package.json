@@ -17,7 +17,8 @@
     "db:setup:local": "bun run db:migrate:local && bun run db:seed:local",
     "db:studio": "drizzle-kit studio",
     "create-admin": "bun run scripts/create-admin.ts",
-    "pool:add": "bun run scripts/pool-add.ts",
+    "pool-add": "bun run scripts/pool-add.ts",
+    "cf:types": "wrangler types --env-interface CloudflareEnv --include-runtime false",
     "test": "bun test"
   },
   "dependencies": {

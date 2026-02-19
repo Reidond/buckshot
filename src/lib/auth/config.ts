@@ -22,7 +22,7 @@ export const authConfig: NextAuthConfig = {
         const parsed = loginSchema.safeParse(credentials);
         if (!parsed.success) return null;
 
-        const { env } = await getCloudflareContext();
+        const { env } = await getCloudflareContext({ async: true });
         const db = getDB(env);
 
         const user = await db

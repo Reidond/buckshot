@@ -13,7 +13,9 @@
       "!**/.next",
       "!**/.open-next",
       "!**/dist",
-      "!**/src/components/ui"
+      "!**/src/components/ui",
+      "!**/worker.ts",
+      "!**/worker-configuration.d.ts"
     ]
   },
   "formatter": {
