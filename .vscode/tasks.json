@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev",
+      "type": "shell",
+      "command": "bun run dev",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "bun run build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "check",
+      "type": "shell",
+      "command": "bun run check",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "db:generate",
+      "type": "shell",
+      "command": "bun run db:generate",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
