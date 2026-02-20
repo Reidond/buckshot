@@ -18,7 +18,7 @@
     "db:studio": "drizzle-kit studio",
     "create-admin": "bun run scripts/create-admin.ts",
     "pool-add": "bun run scripts/pool-add.ts",
-    "cf:types": "wrangler types --env-interface CloudflareEnv --include-runtime false",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "test": "bun test"
   },
   "dependencies": {
@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.2",
-    "@cloudflare/workers-types": "^4.20250214.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
