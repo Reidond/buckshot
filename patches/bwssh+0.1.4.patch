@@ -19,3 +19,28 @@
              introspection = await self._bus.introspect(
                  _POLKIT_BUS_NAME, _POLKIT_OBJECT_PATH
              )
+
+--- a/bwssh/cli.py
++++ b/bwssh/cli.py
+@@ -6,6 +6,7 @@
+ import os
+ import shutil
+ import signal
+ import subprocess
++import sys
+ import time
+ from importlib.resources import files
+@@ -300,10 +301,10 @@
+     """
+     if not (user_systemd or launchd or polkit or tray_autostart):
+-        click.echo(
+-            "Error: specify --user-systemd, --launchd, --polkit, or --tray-autostart",
+-            err=True,
+-        )
+-        raise SystemExit(1)
++        if sys.platform == "darwin":
++            launchd = True
++        else:
++            user_systemd = True
+
+     if user_systemd:
