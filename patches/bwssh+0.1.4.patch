@@ -1,0 +1,21 @@
+--- a/bwssh/polkit.py
++++ b/bwssh/polkit.py
+@@ -11,10 +11,9 @@
+ import time
+ from typing import TYPE_CHECKING, Protocol
+
+-import dbus_fast
+-
+ if TYPE_CHECKING:
++    import dbus_fast
+     from dbus_fast.aio import MessageBus
+
+     from bwssh.peercred import ConnectionContext
+@@ -81,6 +80,8 @@
+     ) -> bool:
+         try:
++            import dbus_fast  # noqa: PLC0415
++
+             introspection = await self._bus.introspect(
+                 _POLKIT_BUS_NAME, _POLKIT_OBJECT_PATH
+             )
